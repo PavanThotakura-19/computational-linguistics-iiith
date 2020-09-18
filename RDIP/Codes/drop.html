@@ -3,22 +3,86 @@
     <head>
         <script src="javascript.js"></script>
         <meta charset="UTF-8"/>
+        <style>
+            #dropdown{
+                text-align: center;
+            }
+            #demo2 {
+                display: none;
+                color:blue;
+            }
+            #demo3{
+                display:none;
+            }
+            .text1{
+                display: none;
+            }
+            .text2{
+                display: none;
+            }
+            #reform-btn{
+                display: none;
+            }
+            #check-sen-btn{
+                display: none;
+            }
+            #display-ans-btn{
+                display: none;
+            }
+            #sentance-txt1{
+                color:blue;
+            }
+            #sentance-txt2{
+                color:blue;
+            }
+        </style>
     </head>
     <body>
+        
         <h1>EXPERIMENT</h1>
-        <div style="text-align: center;">
-        <select name="lang" onchange="list(this)" required>
-    <option value="null">---Select Language---</option>
-    <option value="english">English</option>
-    <option value="hindi">Hindi</option>
-    </select>
+        <div id="dropdown">
+            <center>
+                <select name="lang" onchange="renderDynamicButtons(this)">
+                <option value="null">---Select Language---</option>
+                <option value="english">English</option>
+                <option value="hindi">Hindi</option>
+                </select>
+            </center>
+        </div>
+        <br/> <br/> <br/>    
+        <div class="buttons-info">
+            <div class="text1">
+                <center><p id="sentance-txt1"><b>Form a sentence (Declarative or Interrogative or any other type) from the given words</b><br><i>(select the buttons in proper order)</i></p></center>
+            </div>
+            <br>
+            <div class="dynamic-buttons">
+                <center><div id="buttons"></div></center>
+            </div>
+        </div>
+            
+        <div class="sentance-info">
+            <div class="text2">
+                <center><p id="sentance-txt2"><b>Formed Sentence</b> (<i>after selecting words</i>):</p></center>
+            </div>
+            <div>
+                <center><h2 id="dynamic-sentance"></h2></center>
+            </div>
+        </div>
+
+        <div class="confirmation">
+            <center><button id="reform-btn" value="Re-form the sentence" onclick = reformSentance(this)>Re-form the sentence</button></center>
+            <br/>
+            <center><button id="check-sen-btn" value="Check the correctness of this sentence"  onclick = validateSentace(this)>Check the correctness of this sentence</button></center>
+            <div class="answer-validations">
+                <div id="message"></div>
+            </div>
+            <br/>
+            <center><input type="button" id="display-ans-btn" value="Get Answers"  onclick = toggleAnswers(this)></center>
+            <br/>
+            <div class="answers-section">
+                <div id="answers"></div>
+            </div>
+        </div>
     </div>
-    <div style="padding-top:80px;">
-       <center><p id="demo" style="color:blue"></p></center>
-    </div><br>
-    <div>
-     <center><p id="demo1"></p></center>
-    </div>
-    
 </body>
-    </html>
+</html>
