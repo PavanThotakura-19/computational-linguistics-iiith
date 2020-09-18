@@ -285,7 +285,7 @@ function validateSentace(dis){
                 break;
         }
     }
-    document.getElementById("message").innerHTML = isValid ? "<center><h2>Right Answer </h2></center>" : "<center><h2>Wrong Answer!!! </h2></center>";
+    document.getElementById("message").innerHTML = isValid ? "<center><h2>Right Answer!!!</h2></center>" : "<center><h2>Wrong Answer!!! </h2></center>";
     document.getElementById("display-ans-btn").style.display = "inline"; 
 }
 
