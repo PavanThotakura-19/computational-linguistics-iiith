@@ -126,6 +126,7 @@ var shuffeledArray;
 var numberOfClicks = 0;
 var inputSentace = "";
 var validationArray = [];
+var togglebutton=false;
 
 function renderDynamicButtons(selectedObj){
     document.getElementById("buttons").innerHTML = "";
@@ -291,8 +292,16 @@ function validateSentace(dis){
 
 
 function toggleAnswers(dis){
-    document.getElementById("answers").innerHTML = "";
-    for (var i = 0; i < validationArray.length; i++ ) {
-        document.getElementById("answers").innerHTML += "<center><p>"+validationArray[i]+"</p></center>";
+    togglebutton = !togglebutton;
+    if(togglebutton){ 
+        document.getElementById("answers").innerHTML = "";
+        document.getElementById("display-ans-btn").value="Hide the answers"
+            for (var i = 0; i < validationArray.length; i++ ) {
+            document.getElementById("answers").innerHTML += "<center><p>"+validationArray[i]+"</p></center>";
+        }
     }
+    else{
+        document.getElementById("answers").innerHTML = "";
+        document.getElementById("display-ans-btn").value="Get answers";
+    }       
 }
